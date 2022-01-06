@@ -1,0 +1,46 @@
+<!-- Back button with a default href -->
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="'/login'"> </ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro de Usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content mode ="ios">
+
+<form [formGroup]="formregistro" (submit)="enviardatos()">
+  <ion-card class="ion-padding">
+    <ion-card-header mode="ios">
+      <ion-card-title class="justify">
+        <h2>Crear usuario</h2>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" formControlName="name" ></ion-input>
+      </ion-item>
+     
+      <ion-item>
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input type="email" formControlName = "email" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName = "password"></ion-input>
+      </ion-item>
+    
+    </ion-card-content>
+    <ion-row class="ion-padding">
+      <ion-col>
+        <ion-button [routerLink]="'/login'" [disabled]="formregistro.invalid" color="success" 
+        type="submit" expand="block" > <ion-icon name="person-add"></ion-icon>Registrarse</ion-button>
+      </ion-col>
+     </ion-row>
+  </ion-card>
+</form>
+
+</ion-content>

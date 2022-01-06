@@ -1,0 +1,26 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="'/vista-art'"> </ion-back-button>
+    </ion-buttons>
+    <ion-title>Vista del Articulo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content mode = "ios">
+  <div>
+  <ion-card  *ngFor="let a of art">
+    <ion-card-header>
+      <ion-card-title>{{a.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="justify">
+   
+        <p>{{a.descripcion}}</p>
+    </ion-card-content>
+  </ion-card>
+
+</div>
+
+
+</ion-content>

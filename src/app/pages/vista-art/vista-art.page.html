@@ -1,0 +1,72 @@
+<ion-header mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="end">
+      <ion-button (click) = "cerrarSesion()" >Salir</ion-button>
+      <ion-icon  name="log-out"></ion-icon>
+    </ion-buttons>
+    <ion-title>Articulos</ion-title>
+  </ion-toolbar>
+  <ion-searchbar
+    placeholder="Buscar"
+    inputmode="text"
+    (ionChange)="onSearchChange($event)"
+    [debounce]="250"
+    showCancelButton="always"
+  ></ion-searchbar>
+</ion-header>
+
+
+<ion-content mode="ios">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed"  *ngIf="hiddenElmentsAdmin()">
+    <ion-fab-button (click)="agregarArticulos()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed"  *ngIf="hiddenElmentsAdmin()">
+    <ion-fab-button color="warning"  (click)="vistaUsuario()">
+      <ion-icon name="people"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list mode="ios">
+    <ion-item-sliding
+      *ngFor="let art of articulos | filtro:textoBuscar:'nombre'; let i = index"
+    >
+      <ion-item-options side="start"  *ngIf="hiddenElmentsAdmin()">
+        <ion-item-option color="success" (click)="editarArticulo(art.id)">
+          <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-label (click)="verArticulo(art.id)">
+          <h2>{{art.nombre}}</h2>
+          <p>{{art.descripcion}}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end"  *ngIf="hiddenElmentsAdmin()">
+        <ion-item-option color="danger" (click)="eliminarArticulo(art,i)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-list *ngIf="articulos===null">
+    <ion-item *ngFor="let i of [1,1,1,1,1,1,1,1,1]">
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 70%;"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 40%;"></ion-skeleton-text>
+        </p>
+      </ion-label>
+
+      <ion-skeleton-text slot="end" style="width: 40px;"></ion-skeleton-text>
+    </ion-item>
+  </ion-list>
+</ion-content>

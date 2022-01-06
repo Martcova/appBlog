@@ -1,0 +1,53 @@
+ion-input.ion-invalid.ion-touched{
+    border-bottom:solid 1px red !important;
+      }
+    
+  ion-input.ng-valid.ng-touched{
+    border-bottom:solid 1px rgb(13, 238, 13) !important;
+          }
+  
+  ion-textArea.ion-invalid.ion-touched{
+    border-bottom:solid 1px red !important;
+      }
+
+  ion-textArea.ng-valid.ng-touched{
+    border-bottom:solid 1px rgb(13, 238, 13) !important;
+          }
+
+          .card-center{
+            width:90%; // adjust width on your ion-card suitable on your screen
+            height:90%; // adjust height on your ion-card suitable on your screen
+            display:block;
+            margin: 0 auto;
+        }
+        
+        .justify{
+            text-align:center;
+        }
+        
+        
+        
+        ion-card-content{
+          
+            padding-top:20px;
+        }
+        
+        ion-row{
+            //baja hacia abajo
+            padding-top:60px;
+        }
+        
+        ion-card-title{
+            //baja hacia abajo
+            padding-top:10px;
+        }
+        
+        ion-item{
+            //baja hacia abajo
+            padding-top:20px;
+        }
+        
+        ion-textarea{
+            
+            width: 500px;
+        }

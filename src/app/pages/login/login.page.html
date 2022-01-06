@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>TECNOMART</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode = "ios">
+<ion-col size="3" offset="3">
+  
+<form [formGroup]="formLogin" (ngSubmit)="enviarLogin()" >
+<ion-card class="card-center">
+  <ion-card-header>
+    <ion-card-title class="justify">
+      Bienvenido(a)
+      
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    
+    <ion-item>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input type="email" formControlName="email" ></ion-input>
+    </ion-item>
+    <ion-item  >
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" formControlName ="password"  ></ion-input> 
+    </ion-item>
+  </ion-card-content>
+  <ion-row class="ion-padding">
+    <ion-col>
+      <ion-button [routerLink]="'registro-u'" color="success" expand="block" > <ion-icon name="person-add"></ion-icon>Registrarse</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button  [disabled]="formLogin.invalid" type="submit" color="primary"  expand="block" > <ion-icon name="log-in"></ion-icon>Ingresar</ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+</form>
+</ion-col>
+
+
+
+
+
+</ion-content>
+
